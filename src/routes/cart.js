@@ -1,12 +1,12 @@
+
 const express = require('express');
-<<<<<<< Updated upstream
 const router = express.Router();
 
-const {show} = require('../controllers/cartController');
+const { show, add } = require('../controllers/cartController');
 
+// api/cart
 router
     .get('/show', show)
+    .post('/:id', add)
 
 module.exports = router;
-=======
->>>>>>> Stashed changes

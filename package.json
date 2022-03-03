@@ -1,0 +1,26 @@
+{
+  "name": "carrito-de-clase",
+  "version": "1.0.0",
+  "description": "Carrito hecho en clase",
+  "main": "app.js",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "123"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilvanaZ/carrito-de-clase.git"
+  },
+  "keywords": [
+    "123"
+  ],
+  "author": "Silvana Zalazar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SilvanaZ/carrito-de-clase/issues"
+  },
+  "homepage": "https://github.com/SilvanaZ/carrito-de-clase#readme"
+}
