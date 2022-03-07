@@ -7,6 +7,8 @@ const { show, add, remove } = require('../controllers/cartController');
 router
     .get('/show', show)
     .post('/:id', add)
+    .delete('/item/:id', removeItem)
     .delete('/:id', remove)
+    .delete('/')
 
 module.exports = router;

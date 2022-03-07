@@ -111,7 +111,7 @@ module.exports = {
             } else {
 
                 req.session.cart.splice(index, 1);
-
+                let product = req.session.cart[index];
             }
 
             let response = {
@@ -125,7 +125,46 @@ module.exports = {
             return res.status(200).json(response)
 
         } catch (error) {
+            console.log(error)
+        }
+    },
+    removeItem: (req, res) =>{
+        try{
+            let index = productVerify(req.session.cart, req.params.id);
+            let product = req.session.cart[index];
+            if (product.amount > 1) {
 
+                product.amount--
+                product.total = product.amount * product.price;
+                req.session.cart[index] = product;
+
+            } else {
+
+                req.session.cart.splice(index, 1);
+                let product = req.session.cart[index];
+            }
+
+            let response = {
+                ok: true,
+                meta: {
+                    total: req.session.cart.length
+                },
+                data: req.session.cart
+            }
+            return res.status(200).json(response)
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    empty: async (req, res) =>{
+        try{
+            await db.Order.destroy{
+                where:{
+                    userId: req.session.Login.id,
+                    status: 'pending'
+                }
+            }
         }
     }
 }

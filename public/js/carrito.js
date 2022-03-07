@@ -1,3 +1,5 @@
+const { removeAllListeners } = require("nodemon");
+
 console.log('carrito connected success!');
 
 const $ = (id) => document.getElementById(id);
@@ -61,6 +63,24 @@ const removeItem = async (id) => {
 
 }
 
+const removeAllItem = async (id) =>{
+
+    try {
+
+        const response = await fetch(`/api/cart/${id}`, {
+            method: 'DELETE'
+        })
+        const result = await response.json()
+
+        if (result.ok) {
+            cargarTabla(result.data)
+        }
+
+    } catch (error) {
+        console.error(error)
+    }
+
+}
 
 const cargarTabla = (data) => {
 
