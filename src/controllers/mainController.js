@@ -14,8 +14,6 @@ const { Op } = require("sequelize");
 const controller = {
 	index: (req, res) => {
 
-		req.session.cart = [];
-
 		// Do the magic
 		let novedades = db.Product.findAll({
 			include: [{ all: true }],
@@ -92,4 +90,3 @@ const controller = {
 };
 
 module.exports = controller;
-
